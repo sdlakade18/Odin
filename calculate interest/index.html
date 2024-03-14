@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BMI Calculator</title>
+        <style>
+            body{
+                margin-top: 20px;
+                text-align: center;
+            }
+            input {
+                width: 200px; /* Set the width of input fields */
+                padding: 5px;
+                margin-bottom: 10px;
+            }
+            button {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+    
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+<script>
+   async function asa(){
+        //let ans = 
+        const first = document.getElementById("first").value;
+        const second = document.getElementById("second").value;
+        
+        // const button = document.getElementsByTagName("button")[0]
+
+        const a = document.getElementById("first").value
+        const b = document.getElementById("second").value
+
+        const sum = await fetch(`https://sum-server.100xdevs.com/sum?a=${a}&b=${b}`)
+
+        const element = document.getElementById("rangeElement")
+        element.innerHTML=sum
+    }
+</script>
+<body>
+    <label for="input">First Number:</label>
+    <input type="text" placeholder="Enter First Number" name="input" id="first">
+    <br><br>
+    <label for="input">Second Number:</label>
+    <input type="text" placeholder="Enter Second Number" name="inp"  id="second">
+   <br><br>
+    <button onclick="asa()">Get sum after fetching</button>
+    <!-- <source > -->
+    <br><br>
+    <div id="empty"></div>
+    <br><br>
+    <div id="rangeElement"></div>
+
+    <!-- <script src="calc.js"></script> -->
+</body>
+</html>
